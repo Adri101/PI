@@ -1,0 +1,46 @@
+
+<div class="d-flex justify-content-start">
+	<table class="table  table-sm table-responsive table-bordered">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Distance</th>
+				<th>Elevation</th>
+				<th>Date</th>
+				<th>Blocked</th>
+				<th>User</th>
+				<th>Time</th>
+				<th>Diffculty</th>
+				<th>kudos</th>
+				<th>More Kudos</th>
+				<th>Less Kudos</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="routes" data-ng-repeat="route in listVM.routes">
+				<td>{{ route.title }}</td>
+				<td>{{ route.description }}</td>
+				<td>{{ route.distance }}</td>
+				<td>{{ route.elevation }}</td>
+				<td>{{ route.date }}</td>
+				<td><a data-ng-if= " route.blocked == 1">Bloqueada</a>
+					<a data-ng-if= " route.blocked == 0">Disponible</a></td>
+				<td>{{ route.idu}}</td>
+				<td>{{ route.time}}</td>
+				<td>{{ route.difficulty}}</td>
+				<td>{{ route.kudos}}</td>
+				<td>
+				<form data-ng-submit = "listVM.functions.addKudos(route.id)">
+				<button type="submit" class="btn-success btn-sm">Add Kudos</button>
+				</form>
+				</td>
+				<td> 
+				<form data-ng-submit = "listVM.functions.lessKudos(route.id)">
+				<button type="submit" class="btn-danger btn-sm">Less Kudos</button>
+				</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

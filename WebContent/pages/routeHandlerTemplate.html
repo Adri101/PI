@@ -1,0 +1,55 @@
+
+<fieldset>
+<legend> Escribe, edita o elimina la ruta</legend>
+		<form data-ng-submit="routeHandlerVM.functions.routeHandlerSwitcher()">
+						<div class="form-group">
+							<label for="title">Título</label> <input name="title" type="text"
+								class="form-control" placeholder="Título de tu ruta"
+								data-ng-model="routeHandlerVM.route.title" required/>
+						</div>
+						<div class="form-group">
+							<label for="description">Descripción de la ruta</label> <input
+								name="description" type="text" class="form-control"
+								placeholder="Descripción de tu ruta"
+								data-ng-model="routeHandlerVM.route.description" required/>
+						</div>
+						<div class="form-group">
+							<label for="distance">Distancia</label> <input name="distance"
+								type="number" class="form-control"
+								placeholder="Distancia en Km´s" data-ng-model="routeHandlerVM.route.distance" required/>
+						</div>
+						<!--Si veo que no funciona el tipo tiempo lo cambio a tipo número-->
+						<div class="form-group">
+							<label for="date">Fecha</label> <input name="date"
+								type="datetime-local" class="form-control" data-ng-model="routeHandlerVM.route.date" required/>
+						</div>
+						<div class="form-group">
+							<label for="elevation">Elevación</label> <input name="elevation"
+								type="number" class="form-control" min="0" max="10000"
+								placeholder="Distancia en m" data-ng-model="routeHandlerVM.route.elevation" required/>
+						</div>
+						<div class="form-group">
+							<label for="time">Tiempo</label> <input name="time" type="text"
+								class="form-control" placeholder="Tiempo de tu ruta"
+								data-ng-model="routeHandlerVM.route.time" required/>
+						</div>
+						<div class="form-group">
+							<label for="difficulty">Dificultad</label> <input
+								name="difficulty" type="text" class="form-control"
+								placeholder="Baja,Media ó Alta" data-ng-model="routeHandlerVM.route.difficulty" required/>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Sube tu ruta"
+								data-ng-show="routeHandlerVM.functions.where('/uploadRoute')"
+								class="btn btn-success btn-block" />
+							<input type="submit" value="Edita tu ruta"
+							class="btn btn-success btn-block" 
+							data-ng-show="routeHandlerVM.functions.where('/editRoute/'+ routeHandlerVM.route.id)"
+							/>
+							<input type="submit" value="Elimina tu ruta"
+							class="btn btn-success btn-block"
+							data-ng-show="routeHandlerVM.functions.where('/deleteRoute/'+ routeHandlerVM.route.id)"
+							 />
+						</div>
+		</form>
+	</fieldset>

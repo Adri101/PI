@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-start">
+	<table class="table  table-sm table-responsive table-bordered">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Distance</th>
+				<th>Elevation</th>
+				<th>Date</th>
+				<th>Blocked</th>
+				<th>User</th>
+				<th>Time</th>
+				<th>Diffculty</th>
+				<th>kudos</th>
+				<th>Edit Route</th>
+				<th>Delete Route</th>
+				<th>Change State</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="routes" data-ng-repeat="route in listVM.myRoutes">
+				<td>{{ route.title }}</td>
+				<td>{{ route.description }}</td>
+				<td>{{ route.distance }}</td>
+				<td>{{ route.elevation }}</td>
+				<td>{{ route.date }}</td>
+				<td><a data-ng-if= " route.blocked == 1">Bloqueada</a>
+					<a data-ng-if= " route.blocked == 0">Disponible</a></td>
+				<td>{{ route.idu}}</td>
+				<td>{{ route.time}}</td>
+				<td>{{ route.difficulty}}</td>
+				<td>{{ route.kudos}}</td>
+				<td class="editar"><a data-ng-href="#!/editRoute/{{ route.id }}">Editar</a></td>
+				<td class="eliminar"><a data-ng-href="#!/deleteRoute/{{ route.id }}">Eliminar</a></td>
+				<td class="bloqueo">
+				<form data-ng-submit="listVM.functions.stateRoute(route.id)">
+				<button type="submit" class="btn btn-warning btn-sm">Cambiar Estado
+				</button></form>
+				</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
